@@ -1,26 +1,26 @@
 /* eslint-disable prettier/prettier */
 
-import { IsAlphanumeric, IsBoolean, IsNotEmpty, IsNumber} from "class-validator"
-
-export class WalletDto{
+import { IsAlphanumeric, IsBoolean, IsNotEmpty, IsNumber } from "class-validator"
+// dto for wallet credentials
+export class WalletDto {
 
 
   @IsNotEmpty()
   @IsAlphanumeric()
-  userID:string
-  
+  userID: string
+
   @IsNotEmpty()
   @IsNumber()
-  balance:number
+  balance: number
   @IsNotEmpty()
   @IsBoolean()
-  status:string
+  status: string
   @IsNotEmpty()
   @IsAlphanumeric()
-  address:string
+  address: string
   @IsNotEmpty()
   @IsAlphanumeric()
-  cryptonum:string
+  cryptonum: string
 
 }
 

@@ -5,10 +5,7 @@ import { WalletService } from "./walletAddress.service";
 import { WalletDto } from "./dto/walletDto";
 import mongoose from "mongoose";
 
-
-
-
-
+// Making controllers for Wallet to perform crud  operations
 @Controller('wallet')
 export class WalletController {
     constructor(private walletService: WalletService) {

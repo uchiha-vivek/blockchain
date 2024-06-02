@@ -5,14 +5,12 @@ import { UserService } from "./user.service";
 import { CreateUserDto } from "./dto/createUserDto";
 import mongoose from "mongoose";
 import { UpdateUserDto } from "./dto/UpdateUserDto";
-
+// controllers created for performing basic crud operations
 @Controller('users')
 export class UserController {
     // buiseness logic
-    constructor(private userService: UserService) {
-
-    }
-    // creating user
+    constructor(private userService: UserService) {}
+    // creating new User
     @Post()
     @UsePipes(new ValidationPipe())
     createUser(@Body() createUserDto: CreateUserDto) {
@@ -30,8 +28,7 @@ export class UserController {
         if (!updateUser) throw new HttpException("User dont exist", 404)
         return this.userService.updateUser(id, updateUserDto)
     }
-
-
+    // getting user details by id
     @Get(':id')
     async getUserByID(@Param('id') id: string) {
         // optimization on id --> for simplicity purpose
@@ -42,6 +39,7 @@ export class UserController {
         if (!findUserID) throw new HttpException("User does not exits", 404)
         return findUserID
     }
+    // deleting user by id
     @Delete(':id')
     async deleteUser(@Param('id') id: string) {
         const isValid = mongoose.Types.ObjectId.isValid(id)
@@ -49,9 +47,7 @@ export class UserController {
         const deletedUser = await this.userService.deleteUser(id);
         console.log(deletedUser)
     }
-
-
-
+    // getting all the users
     @Get()
     getUsers() {
         return this.userService.getUsers()

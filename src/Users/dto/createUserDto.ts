@@ -1,28 +1,27 @@
 /* eslint-disable prettier/prettier */
-
-import { IsEmail, IsNotEmpty,   IsString, IsStrongPassword } from "class-validator";
-
+import { IsEmail, IsNotEmpty, IsString, IsStrongPassword } from "class-validator";
+// DTO for user class
 export class CreateUserDto {
-    
 
-     @IsNotEmpty()
-     @IsString()
-     userName:string;
 
-     @IsNotEmpty()
-     @IsString()
-     firstName:string;
+    @IsNotEmpty()
+    @IsString()
+    userName: string;
 
-     @IsNotEmpty()
-     @IsString()
-     secondName:string;
+    @IsNotEmpty()
+    @IsString()
+    firstName: string;
+
+    @IsNotEmpty()
+    @IsString()
+    secondName: string;
     @IsNotEmpty()
     @IsEmail()
-    email:string;
+    email: string;
 
     @IsNotEmpty()
     @IsStrongPassword()
-    password:string;
+    password: string;
 
 
 }
